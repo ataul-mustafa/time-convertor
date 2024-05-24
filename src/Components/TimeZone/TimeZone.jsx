@@ -101,7 +101,7 @@ const TimezoneSearch = () => {
             <div className={styles.icons}>
               <div><FaRegCalendarPlus /></div>
               <div  onClick={reverseHandler} ><CgArrowsExchangeAltV/></div>
-              <CopyToClipboard text='https://timezone-convertor.netlify.app' onCopy={() => { alert("Link copied into clipboard") }}>
+              <CopyToClipboard text='https://timezone-convertor-ataul.netlify.app/' onCopy={() => { alert("Link copied into clipboard") }}>
                 <div><PiLinkBold /></div>
               </CopyToClipboard>
               <div><IoMoon /></div>
