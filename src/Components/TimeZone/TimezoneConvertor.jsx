@@ -29,16 +29,9 @@ const TimezoneConvertor = () => {
         label: "Indian standard time/IST"
       }
 
-    // newTimes.map((t, i)=>{
-    //   moment.tz.add(`${t.value}|5:30|0|`)
-    //   setTimeZoneOptions([t, ...timezoneOptions])
-    // })
-
     moment.tz.add(`IST|5:30|0|`)
-    // setTimeZoneOptions([newTime, ...timezoneOptions])
+    setTimeZoneOptions([newTime, ...timezoneOptions])
 
-    // moment.tz.add('bengluru|IST|-5:30|0|')
-    // setTimeZoneOptions([...newTimes, timezoneOptions])
   },[])
 
   //function to convert the time of one time zone to another
