@@ -30,7 +30,7 @@ const TimezoneConvertor = () => {
       }
 
     moment.tz.add(`IST|5:30|0|`)
-    setTimeZoneOptions([newTime, ...timezoneOptions])
+    setTimeZoneOptions([...timezoneOptions, newTime])
 
   },[])
 
