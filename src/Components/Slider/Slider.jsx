@@ -50,6 +50,13 @@ const Slider = ({ draggableProps, dragHandleProps, zonesTime, setZonesTime, i, s
         }
     };
 
+    // Function to get the GMT offset of a specific timezone
+    const getGMTOffset = useMemo(()=>{
+        const now = moment.tz(selectedTimezones[i].value);
+        return now.format('Z');
+    },[i])
+
+
     //function to convert the the time into number when any zone time change
     useEffect(() => {
         convertToMinutes();
@@ -98,8 +105,8 @@ const Slider = ({ draggableProps, dragHandleProps, zonesTime, setZonesTime, i, s
             <div className={styles.sliderCont}>
                 <div className={styles.info}>
                     <div className={styles.left}>
-                        <h1>{selectedTimezones[i]?.value.split('/')[1] ? selectedTimezones[i]?.value.split('/')[1] : selectedTimezones[i]?.value}</h1>
-                        <h4>{selectedTimezones[i]?.value}</h4>
+                        <h1>{selectedTimezones[i]?.label?.split('/')[1] ? selectedTimezones[i]?.label?.split('/')[1] : selectedTimezones[i]?.label}</h1>
+                        <h4>{selectedTimezones[i]?.label}</h4>
                     </div>
                     <div className={styles.right}>
                         <Select
@@ -111,7 +118,7 @@ const Slider = ({ draggableProps, dragHandleProps, zonesTime, setZonesTime, i, s
                             onChange={handleZoneTimeChange}
                         />
                         <div className={styles.bottom}>
-                            <h4>GMT</h4>
+                            <h4>GMT {getGMTOffset}</h4>
                             <h4>{formattdDate}</h4>
                         </div>
                     </div>

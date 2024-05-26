@@ -147,3 +147,9 @@ input[type="range"] {
   }
 
   
+
+  @media screen and (max-width: 700px) {
+    .sliderCard{
+      padding: 20px 10px;
+    }
+  }

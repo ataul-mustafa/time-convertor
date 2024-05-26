@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import moment from 'moment-timezone';
 import styles from './TimezoneSearch.module.css';
@@ -11,16 +11,35 @@ import { IoMoon } from "react-icons/io5";
 import PlusComp from '../PlusComp/PlusComp';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-const TimezoneSearch = () => {
+const TimezoneConvertor = () => {
 
   //initiazing stats
   const [selectedTimezones, setSelectedTimezones] = useState([]);
   const [zonesTime, setZonesTime] = useState([]);
   const [date, setDate] = useState(moment().format('YYYY/MM/DD'))
-  const timezoneOptions = moment.tz.names().map((tz) => ({
+  const [timezoneOptions, setTimeZoneOptions] = useState(moment.tz.names().map((tz) => ({
     value: tz,
     label: tz
-  }));
+  })));
+
+
+  useEffect(()=>{
+    const newTime = {
+        value: "indian standart time",
+        label: "Indian standard time/IST"
+      }
+
+    // newTimes.map((t, i)=>{
+    //   moment.tz.add(`${t.value}|5:30|0|`)
+    //   setTimeZoneOptions([t, ...timezoneOptions])
+    // })
+
+    moment.tz.add(`IST|5:30|0|`)
+    // setTimeZoneOptions([newTime, ...timezoneOptions])
+
+    // moment.tz.add('bengluru|IST|-5:30|0|')
+    // setTimeZoneOptions([...newTimes, timezoneOptions])
+  },[])
 
   //function to convert the time of one time zone to another
   const convertTimezone = (time, sourceTimezone, destTimezone) => {
@@ -33,7 +52,7 @@ const TimezoneSearch = () => {
   };
 
   //function to add one time zone in the list
-  const handleTimezoneAdd = (selectedOption) => {
+  function handleTimezoneAdd(selectedOption){
     let newItems = [...selectedTimezones, selectedOption];
     setSelectedTimezones(newItems);
 
@@ -146,4 +165,4 @@ const TimezoneSearch = () => {
   );
 };
 
-export default TimezoneSearch;
+export default TimezoneConvertor;

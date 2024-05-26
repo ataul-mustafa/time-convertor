@@ -1,11 +1,11 @@
 import React from "react"
-import TimezoneSearch from "./Components/TimeZone/TimeZone"
+import TimezoneConvertor from "./Components/TimeZone/TimezoneConvertor"
 
 function App() {
 
   return (
     <>
-      <TimezoneSearch />
+      <TimezoneConvertor />
     </>
   )
 }
